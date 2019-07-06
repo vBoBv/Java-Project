@@ -10,6 +10,7 @@ public class RegularCustomer {
 	protected String gender;
 	protected int phoneNumber;
 	protected String emailAddress;
+	protected int LoyaltyPoint;
 	
 	
 	public RegularCustomer(String memberShipClass, String firstName, String lastName, int age, String gender, int phoneNumber, String emailAddress) {
@@ -20,6 +21,7 @@ public class RegularCustomer {
 		this.gender = gender;
 		this.phoneNumber = phoneNumber;
 		this.emailAddress = emailAddress;
+
 	
 	}
 

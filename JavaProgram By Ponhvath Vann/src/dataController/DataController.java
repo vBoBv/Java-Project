@@ -332,8 +332,9 @@ public class DataController {
 				String gender = tokenizer.nextToken();
 				int phoneNumber = Integer.parseInt(tokenizer.nextToken());
 				String emailAddress = tokenizer.nextToken();
+				int silverPoint = Integer.parseInt(tokenizer.nextToken());
 				
-				silverCustomerDetailsArrayList.add(new SilverCustomer(membershipClass,firstName,lastName,age,gender,phoneNumber,emailAddress, 0)); 
+				silverCustomerDetailsArrayList.add(new SilverCustomer(membershipClass,firstName,lastName,age,gender,phoneNumber,emailAddress, silverPoint)); 
 				
 				line = reader.readLine();
 			}
@@ -369,8 +370,9 @@ public class DataController {
 				String gender = tokenizer.nextToken();
 				int phoneNumber = Integer.parseInt(tokenizer.nextToken());
 				String emailAddress = tokenizer.nextToken();
+				int goldPoint = Integer.parseInt(tokenizer.nextToken());
 				
-				goldCustomerDetailsArrayList.add(new GoldCustomer(membershipClass,firstName,lastName,age,gender,phoneNumber,emailAddress, 0)); 
+				goldCustomerDetailsArrayList.add(new GoldCustomer(membershipClass,firstName,lastName,age,gender,phoneNumber,emailAddress,goldPoint)); 
 				
 				line = reader.readLine();
 			}

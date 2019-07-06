@@ -10,6 +10,7 @@ import data.SilverCustomer;
 import dataController.DataController;
 import listener.AdminSignInActionListener;
 import listener.ChangeMemberDetailsActionListener;
+import listener.CheckLoyaltyPointActionListener;
 import listener.HomePageActionListener;
 import listener.ManageMemberActionListener;
 
@@ -137,6 +138,11 @@ public class MyApplication {
 				
 				JButton searchMember = ui1.getBtnSearch();
 				searchMember.addActionListener(listenerForChangeMemberDetails);
+				
+				//Listener for Check Loyalty Points
+				CheckLoyaltyPointActionListener listenerForCheckLoyaltyPoint = new CheckLoyaltyPointActionListener(ui1,dc);
+				JButton btnCheck = ui1.getBtnCheck();
+				btnCheck.addActionListener(listenerForCheckLoyaltyPoint);
 				
 				
 

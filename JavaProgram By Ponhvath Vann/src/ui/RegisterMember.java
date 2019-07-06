@@ -51,6 +51,10 @@ import javax.swing.event.ChangeListener;
 import data.RegularCustomer;
 import data.SilverCustomer;
 import dataController.DataController;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class RegisterMember extends JFrame { 
 	ArrayList<RegularCustomer> customerDetails = DataController.readFile("data/customerDetails.csv");
@@ -72,8 +76,37 @@ public class RegisterMember extends JFrame {
 	private JLabel lblAdminUsername;
 	private JButton btnSignOut;
 	
+	private JTextField modifyLoyaltyPoint;
 	
 	
+//	public JTextField getSearch() {
+//		return Search;
+//	}
+//
+//	public void setSearch(JTextField search) {
+//		Search = search;
+//	}
+
+	public JTextField getModifyLoyaltyPoint() {
+		return modifyLoyaltyPoint;
+	}
+
+	public void setModifyLoyaltyPoint(JTextField modifyLoyaltyPoint) {
+		this.modifyLoyaltyPoint = modifyLoyaltyPoint;
+	}
+
+
+
+	private JLabel loyaltyPoint;
+	
+	public JLabel getLoyaltyPoint() {
+		return loyaltyPoint;
+	}
+
+	public void setLoyaltyPoint(JLabel loyaltyPoint) {
+		this.loyaltyPoint = loyaltyPoint;
+	}
+
 	public JLabel getLblAdminUsername() {
 		return lblAdminUsername;
 	}
@@ -124,9 +157,6 @@ public class RegisterMember extends JFrame {
 	private double normalBlueRayTotalPrice;
 	private double normalDvdTotalPrice;
 	private double sumTotalPrice;
-	
-	////
-	private JComboBox comboBoxMembershipClass;
 	private JButton btnCheck;
 	
 	//ArrayList<Member> data;
@@ -417,13 +447,13 @@ public class RegisterMember extends JFrame {
 	}
 	
 
-	public JComboBox getComboBoxMembershipClass() {
-		return comboBoxMembershipClass;
-	}
-
-	public void setComboBoxMembershipClass(JComboBox comboBoxMembershipClass) {
-		this.comboBoxMembershipClass = comboBoxMembershipClass;
-	}
+//	public JComboBox getComboBoxMembershipClass() {
+//		return comboBoxMembershipClass;
+//	}
+//
+//	public void setComboBoxMembershipClass(JComboBox comboBoxMembershipClass) {
+//		this.comboBoxMembershipClass = comboBoxMembershipClass;
+//	}
 
 	
 	public JButton getBtnConfirmPayment() {
@@ -734,6 +764,7 @@ public class RegisterMember extends JFrame {
 
 	
 	private JButton btnProcessPayment;
+	
 	
 	
 	public JButton getBtnProcessPayment() {
@@ -1755,30 +1786,16 @@ public class RegisterMember extends JFrame {
 		lblCheckLoyaltyPoints.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		panel_12.add(lblCheckLoyaltyPoints);
 		
-		JLabel label_12 = new JLabel("Membership Class:");
-		label_12.setHorizontalAlignment(SwingConstants.LEFT);
-		label_12.setForeground(new Color(102, 102, 102));
-		label_12.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		label_12.setBounds(44, 71, 130, 42);
-		panel_12.add(label_12);
-		
-		comboBoxMembershipClass = new JComboBox();
-		comboBoxMembershipClass.setBackground(new Color(255, 255, 255));
-		comboBoxMembershipClass.setModel(new DefaultComboBoxModel(new String[] {"Silver", "Gold"}));
-		comboBoxMembershipClass.setSelectedItem(null);
-		comboBoxMembershipClass.setBounds(201, 77, 154, 30);
-		panel_12.add(comboBoxMembershipClass);
-		
 		JLabel lblFullName = new JLabel("Full Name:");
 		lblFullName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblFullName.setForeground(new Color(102, 102, 102));
 		lblFullName.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblFullName.setBounds(44, 126, 130, 42);
+		lblFullName.setBounds(46, 72, 130, 42);
 		panel_12.add(lblFullName);
 		
 		txtFieldFullName = new JTextField();
 		txtFieldFullName.setToolTipText("FirstName + LastName");
-		txtFieldFullName.setBounds(201, 136, 154, 22);
+		txtFieldFullName.setBounds(201, 82, 154, 22);
 		panel_12.add(txtFieldFullName);
 		txtFieldFullName.setColumns(10);
 		
@@ -1786,18 +1803,18 @@ public class RegisterMember extends JFrame {
 		lblPhoneNumberLoyaltyPoint.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPhoneNumberLoyaltyPoint.setForeground(new Color(102, 102, 102));
 		lblPhoneNumberLoyaltyPoint.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblPhoneNumberLoyaltyPoint.setBounds(46, 177, 130, 42);
+		lblPhoneNumberLoyaltyPoint.setBounds(46, 127, 130, 42);
 		panel_12.add(lblPhoneNumberLoyaltyPoint);
 		
 		txtFieldPhoneNumber = new JTextField();
 		txtFieldPhoneNumber.setColumns(10);
-		txtFieldPhoneNumber.setBounds(201, 187, 154, 22);
+		txtFieldPhoneNumber.setBounds(201, 137, 154, 22);
 		panel_12.add(txtFieldPhoneNumber);
 		
 		btnCheck = new JButton("Check");
 		btnCheck.setForeground(Color.WHITE);
 		btnCheck.setBackground(new Color(51, 51, 51));
-		btnCheck.setBounds(234, 235, 81, 22);
+		btnCheck.setBounds(239, 184, 81, 22);
 		panel_12.add(btnCheck);
 		
 		JPanel panel_13 = new JPanel();
@@ -1861,12 +1878,12 @@ public class RegisterMember extends JFrame {
 		lblCustomerHas.setBounds(39, 67, 164, 18);
 		panel_14.add(lblCustomerHas);
 		
-		JLabel label_13 = new JLabel("0");
-		label_13.setHorizontalAlignment(SwingConstants.CENTER);
-		label_13.setForeground(new Color(102, 102, 102));
-		label_13.setFont(new Font("Times New Roman", Font.BOLD, 87));
-		label_13.setBounds(39, 83, 164, 122);
-		panel_14.add(label_13);
+		loyaltyPoint = new JLabel("0");
+		loyaltyPoint.setHorizontalAlignment(SwingConstants.CENTER);
+		loyaltyPoint.setForeground(new Color(102, 102, 102));
+		loyaltyPoint.setFont(new Font("Times New Roman", Font.BOLD, 87));
+		loyaltyPoint.setBounds(39, 83, 164, 122);
+		panel_14.add(loyaltyPoint);
 		
 		JLabel lblPoints = new JLabel("points!");
 		lblPoints.setHorizontalAlignment(SwingConstants.CENTER);
@@ -2224,6 +2241,21 @@ public class RegisterMember extends JFrame {
 		btnUpdateGold.setBounds(184, 432, 97, 22);
 		panel_17.add(btnUpdateGold);
 		
+		JLabel lblLoyaltyPoints_2 = new JLabel("Loyalty Point(s):");
+		lblLoyaltyPoints_2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblLoyaltyPoints_2.setForeground(new Color(102, 102, 102));
+		lblLoyaltyPoints_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblLoyaltyPoints_2.setBounds(25, 358, 130, 42);
+		panel_17.add(lblLoyaltyPoints_2);
+		
+		modifyLoyaltyPoint = new JTextField();
+		modifyLoyaltyPoint.setEditable(false);
+		modifyLoyaltyPoint.setHorizontalAlignment(SwingConstants.CENTER);
+		modifyLoyaltyPoint.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		modifyLoyaltyPoint.setColumns(10);
+		modifyLoyaltyPoint.setBounds(231, 368, 146, 22);
+		panel_17.add(modifyLoyaltyPoint);
+		
 		JLabel lblPleaseChooseThe = new JLabel("Please choose the membership type:");
 		lblPleaseChooseThe.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPleaseChooseThe.setForeground(new Color(102, 102, 102));
@@ -2380,7 +2412,7 @@ public class RegisterMember extends JFrame {
 				layeredPane.add(checkLoyaltyPoints);
 				layeredPane.repaint();
 				layeredPane.revalidate();
-				JOptionPane.showMessageDialog(null,"Sorry, this function is still under construction. \n", "Info Message", JOptionPane.ERROR_MESSAGE);
+				//JOptionPane.showMessageDialog(null,"Sorry, this function is still under construction. \n", "Info Message", JOptionPane.ERROR_MESSAGE);
 			}
 		});
 		btnCheckLoyaltyPoints.setForeground(Color.WHITE);

@@ -167,6 +167,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				String gender = silverCustomerDetails.get(index).getGender();
 				int phoneNumber = silverCustomerDetails.get(index).getPhoneNumber();
 				String email = silverCustomerDetails.get(index).getEmailAddress();
+				int point = silverCustomerDetails.get(index).getSilverLoyaltyPoints();
 				
 				//Set the selected customers to the text fields
 				ui.getModifyMemberClassTxt().setText(membershipClass);
@@ -176,6 +177,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				ui.getModifyGenderTxt().setText(gender);
 				ui.getModifyPhoneTxt().setText(phoneNumber+"");
 				ui.getModifyEmailTxt().setText(email);
+				ui.getModifyLoyaltyPoint().setText(point+"");
 				
 			}catch(ArrayIndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(ui, "+ Please select a customer to proceed." , "Info Message", JOptionPane.ERROR_MESSAGE);
@@ -203,6 +205,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				String gender = goldCustomerDetails.get(index).getGender();
 				int phoneNumber = goldCustomerDetails.get(index).getPhoneNumber();
 				String email = goldCustomerDetails.get(index).getEmailAddress();
+				int point = goldCustomerDetails.get(index).getGoldLoyaltyPoints();
 				
 				//Set the selected customers to the text fields
 				ui.getModifyMemberClassTxt().setText(membershipClass);
@@ -212,6 +215,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				ui.getModifyGenderTxt().setText(gender);
 				ui.getModifyPhoneTxt().setText(phoneNumber+"");
 				ui.getModifyEmailTxt().setText(email);
+				ui.getModifyLoyaltyPoint().setText(point+"");
 				
 			}catch(ArrayIndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(ui, "+ Please select a customer to proceed." , "Info Message", JOptionPane.ERROR_MESSAGE);
@@ -247,6 +251,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				ui.getModifyGenderTxt().setText(gender);
 				ui.getModifyPhoneTxt().setText(phoneNumber+"");
 				ui.getModifyEmailTxt().setText(email);
+				ui.getModifyLoyaltyPoint().setText("Not available");
 				
 			}catch(ArrayIndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(ui, "+ Please select a customer to proceed." , "Info Message", JOptionPane.ERROR_MESSAGE);
@@ -405,6 +410,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				String phoneNumber = ui.getModifyPhoneTxt().getText();
 				int phoneNumber1 = 0;
 				String email = ui.getModifyEmailTxt().getText();
+				String silverLoyaltyPoints = ui.getModifyLoyaltyPoint().getText();
 			    Boolean all_data_valid = true;
 			    String Error_Message = "";
 				
@@ -476,7 +482,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 						int index = ui.getListModifyMember().getSelectedIndex();
 						//Array List used to store the updated array list after the modification
 						ArrayList<String> newSilverCustomerDetails = new ArrayList<String>();
-						String CSV_Silver_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+email;
+						String CSV_Silver_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+email+","+silverLoyaltyPoints;
 						silverCustomerDetails.remove(index); // Remove the customer records at the selected index from the array list
 						newSilverCustomerDetails.add(CSV_Silver_String); // Add the modified customer into the new array list
 						
@@ -490,8 +496,9 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 							String newGender = customer.getGender();
 							int newPhoneNumber = customer.getPhoneNumber();
 							String newEmailAddress = customer.getEmailAddress();
+							int newSilverLoyaltyPoints = customer.getSilverLoyaltyPoints();
 							
-							CSV_newSilver_String = newMembershipClass +","+newFirstName+","+newLastName+","+newAge+","+newGender+","+newPhoneNumber+","+newEmailAddress;
+							CSV_newSilver_String = newMembershipClass +","+newFirstName+","+newLastName+","+newAge+","+newGender+","+newPhoneNumber+","+newEmailAddress+","+newSilverLoyaltyPoints;
 							newSilverCustomerDetails.add(CSV_newSilver_String); // Add the updated array list into the new ArrayList
 						}
 						
@@ -540,6 +547,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 				String phoneNumber = ui.getModifyPhoneTxt().getText();
 				int phoneNumber1 = 0;
 				String email = ui.getModifyEmailTxt().getText();
+				String goldLoyaltyPoints = ui.getModifyLoyaltyPoint().getText();
 			    Boolean all_data_valid = true;
 			    String Error_Message = "";
 				
@@ -613,7 +621,7 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 						int index = ui.getListModifyMember().getSelectedIndex();
 						//Array List used to store the updated array list after the modification
 						ArrayList<String> newGoldCustomerDetails = new ArrayList<String>();
-						String CSV_Gold_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+email;
+						String CSV_Gold_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+email+","+goldLoyaltyPoints;
 						goldCustomerDetails.remove(index); // Remove the customer records at the selected index from the array list
 						newGoldCustomerDetails.add(CSV_Gold_String); // Add the modified customer into the new array list
 						
@@ -627,8 +635,9 @@ public class ChangeMemberDetailsActionListener implements ActionListener {
 							String newGender = customer.getGender();
 							int newPhoneNumber = customer.getPhoneNumber();
 							String newEmailAddress = customer.getEmailAddress();
+							int newGoldLoyaltyPoints = customer.getGoldLoyaltyPoints();
 							
-							CSV_newGold_String = newMembershipClass +","+newFirstName+","+newLastName+","+newAge+","+newGender+","+newPhoneNumber+","+newEmailAddress;
+							CSV_newGold_String = newMembershipClass +","+newFirstName+","+newLastName+","+newAge+","+newGender+","+newPhoneNumber+","+newEmailAddress+","+newGoldLoyaltyPoints;
 							newGoldCustomerDetails.add(CSV_newGold_String); // Add the updated array list into the new ArrayList
 						}
 						

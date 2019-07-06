@@ -181,6 +181,11 @@ public class AdminSignInActionListener implements ActionListener {
 							
 							JButton searchMember = ui.getBtnSearch();
 							searchMember.addActionListener(listenerForChangeMemberDetails);
+							
+							//Listener for Check Loyalty Points
+							CheckLoyaltyPointActionListener listenerForCheckLoyaltyPoint = new CheckLoyaltyPointActionListener(ui,dc);
+							JButton btnCheck = ui.getBtnCheck();
+							btnCheck.addActionListener(listenerForCheckLoyaltyPoint);
 											
 						}
 					}

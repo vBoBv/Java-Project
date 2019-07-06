@@ -11,7 +11,7 @@ public class GoldCustomer extends RegularCustomer {
 		this.goldLoyaltyPoints = goldLoyaltyPoints;
 	}
 	
-	public double getGoldLoyaltyPoints() {
+	public int getGoldLoyaltyPoints() {
 		return goldLoyaltyPoints;
 	}
 

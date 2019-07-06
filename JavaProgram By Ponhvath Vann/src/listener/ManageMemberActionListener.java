@@ -164,8 +164,9 @@ public class ManageMemberActionListener implements ActionListener {
 					String gender = customer.getGender();
 					int phoneNumber = customer.getPhoneNumber();
 					String emailAddress = customer.getEmailAddress();
+					int silverLoyaltyPoint = customer.getSilverLoyaltyPoints();
 					
-					CSV_Silver_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+emailAddress;
+					CSV_Silver_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+emailAddress+","+silverLoyaltyPoint;
 					newSilverCustomerDetails.add(CSV_Silver_String);//Add the updated array list into the new array list
 					
 					
@@ -204,8 +205,9 @@ public class ManageMemberActionListener implements ActionListener {
 					String gender = customer.getGender();
 					int phoneNumber = customer.getPhoneNumber();
 					String emailAddress = customer.getEmailAddress();
+					int goldLoyaltyPoint = customer.getGoldLoyaltyPoints();
 					
-					CSV_Gold_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+emailAddress;
+					CSV_Gold_String = membershipClass +","+firstName+","+lastName+","+age+","+gender+","+phoneNumber+","+emailAddress+","+goldLoyaltyPoint;
 					newGoldCustomerDetails.add(CSV_Gold_String);//Add the updated array list into the new array list
 					
 					
